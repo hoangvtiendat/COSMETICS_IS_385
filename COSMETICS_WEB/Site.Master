@@ -4,15 +4,61 @@
 
 <html>
 <head runat="server">
-    <title></title>
+    <title>Skin For You</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%-- Link tới file CSS của bạn --%>
+    <link href="/assets/css/style.css" rel="stylesheet" />
+
+    <%-- Link tới thư viện icon Font Awesome (để có icon giỏ hàng, người dùng) --%>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+            <header class="main-header">
+                <div class="container">
+                    <a href="/Default.aspx" class="logo">Skin For You</a>
+
+                    <div class="search-bar">
+                        <asp:TextBox ID="txtSearch" runat="server" CssClass="search-input" placeholder="Tìm kiếm sản phẩm..."></asp:TextBox>
+                        <asp:Button ID="btnSearch" runat="server" Text="&#xf002;" CssClass="search-button" />
+                    </div>
+
+                    <div class="header-actions">
+                        <a href="/Login.aspx"><i class="fa-regular fa-user"></i>Tài khoản</a>
+                        <a href="/Cart.aspx"><i class="fa-solid fa-cart-shopping"></i>Giỏ hàng</a>
+                    </div>
+                </div>
+            </header>
+
+            <nav class="main-nav">
+                <div class="container">
+                    <ul>
+                        <li><a href="/Default.aspx">TRANG CHỦ</a></li>
+                        <li><a href="/Products.aspx">SẢN PHẨM</a></li>
+                        <li><a href="/Products.aspx?brand=1">THƯƠNG HIỆU</a></li>
+                        <li><a href="/Contact.aspx">LIÊN HỆ</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    <%-- Nội dung của các trang .aspx sẽ được chèn vào đây --%>
+                </asp:ContentPlaceHolder>
+            </main>
+
+            <footer class="main-footer">
+                <div class="container">
+                    <p>&copy; <%= DateTime.Now.Year %> Skin For You. All Rights Reserved.</p>
+                </div>
+            </footer>
+
         </div>
     </form>
 </body>

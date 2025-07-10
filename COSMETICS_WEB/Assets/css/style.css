@@ -1,2 +1,429 @@
-﻿body {
+﻿/* --- Cài đặt chung & Font chữ --- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Header --- */
+.main-header {
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+}
+
+    .main-header .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+/* --- Thanh tìm kiếm --- */
+.search-bar {
+    display: flex;
+    width: 40%;
+    border: 1px solid #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.search-input {
+    flex-grow: 1;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+    .search-input:focus {
+        outline: none;
+    }
+
+.search-button {
+    border: none;
+    background-color: #27ae60;
+    color: white;
+    padding: 0 20px;
+    cursor: pointer;
+    font-family: "Font Awesome 6 Free"; /* Để hiển thị icon */
+    font-weight: 900;
+}
+
+/* --- Các nút chức năng header --- */
+.header-actions {
+    display: flex;
+    gap: 25px;
+    font-size: 15px;
+}
+
+    .header-actions a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .header-actions i {
+        font-size: 18px;
+    }
+
+
+/* --- Menu điều hướng --- */
+.main-nav {
+    background-color: #fff;
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+    .main-nav ul {
+        list-style-type: none;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .main-nav a {
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 1px;
+        transition: color 0.3s;
+    }
+
+        .main-nav a:hover {
+            color: #27ae60;
+        }
+
+/* --- Nội dung chính --- */
+main {
+    padding: 40px 0;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid #eee;
+    font-size: 14px;
+    color: #777;
+}
+
+/* --- Giao diện Banner trang chủ --- */
+.hero-section {
+    position: relative;
+    /*background-color: #a5d997;*/
+    background-image: url('https://profbeauty.vn/image/catalog/profbeauty/2024/Thumnail/sulwhasoo-rose-su-ket-hop-day-trang-le.png');
+    background-size: cover;
+    background-position: center center;
+    padding: 100px 0;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+    .hero-section::before {
+        content: ''; /* Bắt buộc phải có */
+        position: absolute; /* Định vị tuyệt đối */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgb(255 255 255 / 37%); /* Màu xanh với độ trong suốt 40% (0.4) */
+        /* Màu xanh (RGB: 0, 0, 255), Alpha (độ trong suốt): từ 0 (hoàn toàn trong suốt) đến 1 (hoàn toàn đục) */
+        z-index: -1; /* Đặt lớp phủ nằm dưới nội dung của hero-section */
+        /* Thêm hiệu ứng mờ (blur) cho lớp phủ (tùy chọn) */
+        /* Điều này sẽ làm mờ chính lớp phủ màu, không phải ảnh nền */
+        /* backdrop-filter: blur(5px); */ /* Chỉ hoạt động trên ảnh bên dưới (chỉ số trình duyệt cũ không hỗ trợ) */
+    }
+
+    .hero-section h1 {
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    .hero-section p {
+        font-size: 18px;
+        margin-bottom: 30px;
+        color: #555;
+    }
+
+.hero-button {
+    background-color: #27ae60;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+    .hero-button:hover {
+        background-color: #2ecc71;
+    }
+
+
+/* --- Product Grid Layout --- */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.product-card {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: box-shadow 0.3s;
+}
+
+    .product-card:hover {
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-name {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 15px 10px;
+    color: #333;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: #e74c3c;
+    margin-bottom: 15px;
+}
+
+.add-to-cart-btn {
+    width: calc(100% - 30px);
+    margin-bottom: 15px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: 700;
+}
+
+    .add-to-cart-btn:hover {
+        background-color: #2980b9;
+    }
+
+/* --- Bố cục trang có sidebar --- */
+.page-container {
+    display: flex;
+    gap: 30px;
+}
+
+.filter-sidebar {
+    flex: 1; /* Chiếm 1 phần */
+    max-width: 250px;
+}
+
+.product-content {
+    flex: 3; /* Chiếm 3 phần */
+}
+
+/* --- Định dạng danh sách danh mục --- */
+.filter-sidebar h3 {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+}
+
+.category-list {
+    list-style-type: none;
+}
+
+    .category-list li a {
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.2s;
+    }
+
+        .category-list li a:hover {
+            background-color: #f0f0f0;
+        }
+
+/* --- Giao diện chung cho các khu vực ở trang chủ --- */
+.home-section {
+    padding: 60px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: #27ae60;
+    }
+
+
+/* --- Khu vực Danh mục --- */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.category-card {
+    background-color: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+    .category-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    }
+
+    .category-card i {
+        font-size: 36px;
+        color: #27ae60;
+        margin-bottom: 15px;
+    }
+
+    .category-card h3 {
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+
+/* --- Bố cục trang Liên hệ --- */
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.contact-form-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info-column {
+    flex: 1;
+    min-width: 300px;
+}
+
+    /* --- Form liên hệ --- */
+    .contact-form-column h3,
+    .contact-info-column h3 {
+        margin-bottom: 20px;
+        font-size: 22px;
+    }
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: 500;
+    }
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* --- Thông tin liên hệ & Bản đồ --- */
+.info-block {
+    margin-bottom: 30px;
+}
+
+    .info-block p {
+        font-size: 16px;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .info-block i {
+        color: #27ae60;
+        font-size: 20px;
+        width: 20px;
+        text-align: center;
+    }
+
+.map-container iframe {
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+}
+
+/* --- Tin nhắn báo lỗi / thành công --- */
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.status-message {
+    display: block;
+    margin-top: 15px;
+    font-weight: 700;
+    color: #27ae60;
+}
+
+    .status-message.success {
+        color: #27ae60; /* Màu xanh lá */
+    }
+
+    .status-message.error {
+        color: #e74c3c; /* Màu đỏ */
+    }

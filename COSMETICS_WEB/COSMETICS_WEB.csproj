@@ -43,6 +43,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -62,11 +65,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Admin\Default.aspx" />
     <Content Include="Admin\Login.aspx" />
     <Content Include="Admin\ManageBrands.aspx" />
@@ -76,6 +74,10 @@
     <Content Include="Admin\ManageUsers.aspx" />
     <Content Include="Admin\OrderDetails.aspx" />
     <Content Include="Admin\ProductEditor.aspx" />
+    <Content Include="App_Data\COMESTICS_IS_385.mdf" />
+    <Content Include="App_Data\COMESTICS_IS_385_log.ldf">
+      <DependentUpon>COMESTICS_IS_385.mdf</DependentUpon>
+    </Content>
     <Content Include="Assets\css\style.css" />
     <Content Include="Assets\js\main.js" />
     <Content Include="Cart.aspx" />
@@ -87,6 +89,11 @@
     <Content Include="ProductDetails.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="Register.aspx" />
+    <None Include="Scripts\jquery-3.7.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.7.1.js" />
+    <Content Include="Scripts\jquery-3.7.1.min.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.js" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.js" />
     <Content Include="UserControls\ProductCard.ascx" />
     <Content Include="UserProfile.aspx" />
     <Content Include="Web.config" />
@@ -99,9 +106,11 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Content Include="App_Code\BLL\ProductBLL.cs" />
-    <Content Include="App_Code\BLL\OrderBLL.cs" />
-    <Content Include="App_Code\DAL\ProductDAO.cs" />
+    <Compile Include="App_Code\BLL\CategoryBLL.cs" />
+    <Compile Include="App_Code\BLL\ProductBLL.cs" />
+    <Compile Include="App_Code\BLL\OrderBLL.cs" />
+    <Compile Include="App_Code\DAL\CategoryDAO.cs" />
+    <Compile Include="App_Code\DAL\ProductDAO.cs" />
     <Content Include="App_Code\DAL\UserDAO.cs" />
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -166,6 +175,7 @@
     <Compile Include="Admin\ProductEditor.aspx.designer.cs">
       <DependentUpon>ProductEditor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Models\Category.cs" />
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -253,8 +263,10 @@
   <ItemGroup>
     <Content Include="Admin.Master" />
     <Content Include="Admin\Web.config" />
-    <None Include="packages.config" />
     <Content Include="Site.Master" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.7.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.7.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -263,7 +275,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Assets\images\brands\" />
     <Folder Include="Assets\images\layout\" />
     <Folder Include="Assets\images\products\" />
