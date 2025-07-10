@@ -89,6 +89,8 @@
     <Content Include="ProductDetails.aspx" />
     <Content Include="Products.aspx" />
     <Content Include="Register.aspx" />
+    <Content Include="AppSettings.secrets.config" />
+    <Content Include="AppSettings.example.config" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />

@@ -5,6 +5,11 @@ VisualStudioVersion = 15.0.36123.18
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COSMETICS_WEB", "COSMETICS_WEB\COSMETICS_WEB.csproj", "{A45C9E01-DEF5-4117-B370-70E54D84E7F0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B6F08E76-18B7-404D-9625-9B1AF638C0FB}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
