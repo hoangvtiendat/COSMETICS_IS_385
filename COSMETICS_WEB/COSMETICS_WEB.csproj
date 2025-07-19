@@ -47,6 +47,11 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="QRCoder, Version=1.6.0.0, Culture=neutral, PublicKeyToken=c4ed5b9ae8358a28, processorArchitecture=MSIL">
+      <HintPath>..\packages\QRCoder.1.6.0\lib\net40\QRCoder.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -63,6 +68,7 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin\Default.aspx" />
@@ -108,12 +114,9 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\BLL\CategoryBLL.cs" />
-    <Compile Include="App_Code\BLL\ProductBLL.cs" />
-    <Compile Include="App_Code\BLL\OrderBLL.cs" />
-    <Compile Include="App_Code\DAL\CategoryDAO.cs" />
-    <Compile Include="App_Code\DAL\ProductDAO.cs" />
-    <Content Include="App_Code\DAL\UserDAO.cs" />
+    <Compile Include="Admin\AdminBasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Admin\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -121,6 +124,20 @@
     <Compile Include="Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\BLL\BrandBLL.cs" />
+    <Compile Include="App_Code\BLL\CartBLL.cs" />
+    <Compile Include="App_Code\BLL\CategoryBLL.cs" />
+    <Compile Include="App_Code\BLL\DashboardBLL.cs" />
+    <Compile Include="App_Code\BLL\ProductBLL.cs" />
+    <Compile Include="App_Code\BLL\OrderBLL.cs" />
+    <Compile Include="App_Code\BLL\UserBLL.cs" />
+    <Compile Include="App_Code\DAL\BrandDAO.cs" />
+    <Compile Include="App_Code\DAL\CartDAO.cs" />
+    <Compile Include="App_Code\DAL\CategoryDAO.cs" />
+    <Compile Include="App_Code\DAL\DashboardDAO.cs" />
+    <Compile Include="App_Code\DAL\OrderDAO.cs" />
+    <Compile Include="App_Code\DAL\ProductDAO.cs" />
+    <Compile Include="App_Code\DAL\UserDAO.cs" />
     <Compile Include="Admin\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -177,7 +194,12 @@
     <Compile Include="Admin\ProductEditor.aspx.designer.cs">
       <DependentUpon>ProductEditor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Models\Brand.cs" />
+    <Compile Include="App_Code\Models\CartItem.cs" />
     <Compile Include="App_Code\Models\Category.cs" />
+    <Compile Include="App_Code\Models\DashboardStats.cs" />
+    <Compile Include="App_Code\Models\Order.cs" />
+    <Compile Include="App_Code\Models\ProductImage.cs" />
     <Compile Include="Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -264,7 +286,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.Master" />
-    <Content Include="Admin\Web.config" />
+    <Content Include="Admin\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Site.Master" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.7.1.slim.min.map" />

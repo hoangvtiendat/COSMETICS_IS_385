@@ -1,18 +1,38 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="COSMETICS_WEB.Admin_Master" %>
 
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <title>Admin Panel</title>
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+    <form id="form1" runat="server" enctype="multipart/form-data">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div class="admin-wrapper">
+            <aside class="admin-sidebar">
+                <div class="sidebar-header">
+                    <a href="/Admin/Default.aspx">Skin For You - Admin</a>
+                </div>
+                <ul class="sidebar-nav">
+                    <li><a href="/Admin/Default.aspx"><i class="fa-solid fa-gauge"></i>Dashboard</a></li>
+                    <li><a href="/Admin/ManageProducts.aspx"><i class="fa-solid fa-box"></i>Quản lý Sản phẩm</a></li>
+                    <li><a href="/Admin/ManageCategories.aspx"><i class="fa-solid fa-sitemap"></i>Quản lý Danh mục</a></li>
+                    <li><a href="/Admin/ManageBrands.aspx"><i class="fa-solid fa-copyright"></i>Quản lý Thương hiệu</a></li>
+                    <li><a href="/Admin/ManageOrders.aspx"><i class="fa-solid fa-receipt"></i>Quản lý Đơn hàng</a></li>
+                    <li><a href="/Admin/ManageUsers.aspx"><i class="fa-solid fa-users"></i>Quản lý Người dùng</a></li>
+                    <li class="nav-divider"></li>
+                    <li><a href="/Default.aspx" target="_blank"><i class="fa-solid fa-globe"></i>Xem Website</a></li>
+                    <li>
+                        <asp:LinkButton ID="lbtnLogoutAdmin" runat="server" OnClick="lbtnLogoutAdmin_Click"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</asp:LinkButton></li>
+                </ul>
+            </aside>
+            <main class="admin-content">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </main>
         </div>
     </form>
 </body>

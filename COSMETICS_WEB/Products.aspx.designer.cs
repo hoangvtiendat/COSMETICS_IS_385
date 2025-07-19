@@ -22,6 +22,24 @@ namespace COSMETICS_WEB {
         protected global::System.Web.UI.WebControls.Repeater rptCategories;
         
         /// <summary>
+        /// rptBrands control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rptBrands;
+        
+        /// <summary>
+        /// litPageTitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPageTitle;
+        
+        /// <summary>
         /// rptProducts control.
         /// </summary>
         /// <remarks>

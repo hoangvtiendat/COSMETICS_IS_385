@@ -13,5 +13,11 @@ namespace COSMETICS_WEB
         {
 
         }
+
+        protected void lbtnLogoutAdmin_Click(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("/Login.aspx");
+        }
     }
 }

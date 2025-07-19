@@ -54,3 +54,4 @@
 \\Mac\Home\Downloads\hoangVanTienDat\DuyTanUniversity\IS 385\GROUP_PROJECT\COSMETICS_WEB\COSMETICS_WEB\obj\Debug\COSMETICS_WEB.csproj.CopyComplete
 \\Mac\Home\Downloads\hoangVanTienDat\DuyTanUniversity\IS 385\GROUP_PROJECT\COSMETICS_WEB\COSMETICS_WEB\obj\Debug\COSMETICS_WEB.dll
 \\Mac\Home\Downloads\hoangVanTienDat\DuyTanUniversity\IS 385\GROUP_PROJECT\COSMETICS_WEB\COSMETICS_WEB\obj\Debug\COSMETICS_WEB.pdb
+\\Mac\Home\Downloads\hoangVanTienDat\DuyTanUniversity\IS 385\GROUP_PROJECT\COSMETICS_WEB\COSMETICS_WEB\bin\QRCoder.dll

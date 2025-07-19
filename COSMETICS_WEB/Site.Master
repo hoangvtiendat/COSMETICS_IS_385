@@ -7,7 +7,7 @@
     <title>Skin For You</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
     <%-- Link tới file CSS của bạn --%>
     <link href="/assets/css/style.css" rel="stylesheet" />
 
@@ -19,6 +19,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <div>
             <header class="main-header">
                 <div class="container">
@@ -26,11 +27,21 @@
 
                     <div class="search-bar">
                         <asp:TextBox ID="txtSearch" runat="server" CssClass="search-input" placeholder="Tìm kiếm sản phẩm..."></asp:TextBox>
-                        <asp:Button ID="btnSearch" runat="server" Text="&#xf002;" CssClass="search-button" />
+                        <asp:Button ID="btnSearch" runat="server" Text="&#xf002;" CssClass="search-button" OnClick="btnSearch_Click" />
                     </div>
 
                     <div class="header-actions">
-                        <a href="/Login.aspx"><i class="fa-regular fa-user"></i>Tài khoản</a>
+                        <asp:Panel ID="pnlGuest" runat="server">
+                            <a href="/Login.aspx"><i class="fa-regular fa-user"></i>Tài khoản</a>
+                        </asp:Panel>
+
+                        <asp:Panel ID="pnlUser" runat="server" Visible="false" CssClass="user-panel">
+                            <a href="/UserProfile.aspx">Xin chào,
+                                <asp:Literal ID="litUserName" runat="server"></asp:Literal>
+                            </a>
+                            <asp:LinkButton ID="lbtnLogout" runat="server" OnClick="lbtnLogout_Click" CausesValidation="false">Đăng xuất</asp:LinkButton>
+                        </asp:Panel>
+
                         <a href="/Cart.aspx"><i class="fa-solid fa-cart-shopping"></i>Giỏ hàng</a>
                     </div>
                 </div>
@@ -41,7 +52,7 @@
                     <ul>
                         <li><a href="/Default.aspx">TRANG CHỦ</a></li>
                         <li><a href="/Products.aspx">SẢN PHẨM</a></li>
-                        <li><a href="/Products.aspx?brand=1">THƯƠNG HIỆU</a></li>
+                        <li id="liOrderHistory" runat="server"><a href="/UserProfile.aspx">LỊCH SỬ ĐƠN HÀNG</a></li>
                         <li><a href="/Contact.aspx">LIÊN HỆ</a></li>
                     </ul>
                 </div>
@@ -61,5 +72,35 @@
 
         </div>
     </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script type="text/javascript">
+        // Hàm này sẽ được gọi từ code C#
+        function showToast(type, message) {
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            };
+
+            // Gọi toastr[type] sẽ tương ứng với toastr.success, toastr.error,...
+            toastr[type](message);
+        }
+    </script>
 </body>
 </html>

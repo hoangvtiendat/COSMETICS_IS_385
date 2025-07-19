@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace COSMETICS_WEB.Admin
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : COSMETICS_WEB.Admin.AdminBasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

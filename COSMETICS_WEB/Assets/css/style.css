@@ -24,6 +24,9 @@ a {
     color: inherit;
 }
 
+p {
+    margin-bottom: 20px;
+}
 /* --- Header --- */
 .main-header {
     padding: 15px 0;
@@ -143,21 +146,24 @@ main {
     border-radius: 10px;
     z-index: 1;
 }
+.form-inline {
+    margin-bottom:20px;
+}
 
-    .hero-section::before {
-        content: ''; /* Bắt buộc phải có */
-        position: absolute; /* Định vị tuyệt đối */
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgb(255 255 255 / 37%); /* Màu xanh với độ trong suốt 40% (0.4) */
-        /* Màu xanh (RGB: 0, 0, 255), Alpha (độ trong suốt): từ 0 (hoàn toàn trong suốt) đến 1 (hoàn toàn đục) */
-        z-index: -1; /* Đặt lớp phủ nằm dưới nội dung của hero-section */
-        /* Thêm hiệu ứng mờ (blur) cho lớp phủ (tùy chọn) */
-        /* Điều này sẽ làm mờ chính lớp phủ màu, không phải ảnh nền */
-        /* backdrop-filter: blur(5px); */ /* Chỉ hoạt động trên ảnh bên dưới (chỉ số trình duyệt cũ không hỗ trợ) */
-    }
+.hero-section::before {
+    content: ''; /* Bắt buộc phải có */
+    position: absolute; /* Định vị tuyệt đối */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(255 255 255 / 37%); /* Màu xanh với độ trong suốt 40% (0.4) */
+    /* Màu xanh (RGB: 0, 0, 255), Alpha (độ trong suốt): từ 0 (hoàn toàn trong suốt) đến 1 (hoàn toàn đục) */
+    z-index: -1; /* Đặt lớp phủ nằm dưới nội dung của hero-section */
+    /* Thêm hiệu ứng mờ (blur) cho lớp phủ (tùy chọn) */
+    /* Điều này sẽ làm mờ chính lớp phủ màu, không phải ảnh nền */
+    /* backdrop-filter: blur(5px); */ /* Chỉ hoạt động trên ảnh bên dưới (chỉ số trình duyệt cũ không hỗ trợ) */
+}
 
     .hero-section h1 {
         font-size: 60px;
@@ -177,11 +183,23 @@ main {
     border-radius: 5px;
     font-weight: 700;
     transition: background-color 0.3s;
+    border: none;
 }
 
-    .hero-button:hover {
-        background-color: #2ecc71;
-    }
+.hero-section .hero-button {
+    background-color: #27ae60;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+    border: none;
+    box-shadow: 0px 0px 20px #0000008a;
+}
+
+.hero-button:hover {
+    background-color: #2ecc71;
+}
 
 
 /* --- Product Grid Layout --- */
@@ -222,6 +240,10 @@ main {
     font-weight: 700;
     color: #e74c3c;
     margin-bottom: 15px;
+}
+
+.filter-title {
+    margin-top: 30px; /* Tạo khoảng cách với phần trên */
 }
 
 .add-to-cart-btn {
@@ -372,6 +394,7 @@ main {
     }
 
 .form-control {
+    margin: 20px 0;
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
@@ -426,4 +449,516 @@ main {
 
     .status-message.error {
         color: #e74c3c; /* Màu đỏ */
+    }
+
+/*login form*/
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+}
+
+.login-form {
+    width: 100%;
+    max-width: 450px;
+    padding: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+    .login-form h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+.login-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* --- Cart Page --- */
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 30px;
+}
+
+    .cart-table th, .cart-table td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #eee;
+    }
+
+    .cart-table th {
+        background-color: #f8f9fa;
+    }
+
+.cart-item-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.quantity-input {
+    width: 60px;
+    text-align: center;
+    padding: 5px;
+}
+
+.remove-btn {
+    color: #e74c3c;
+    font-size: 18px;
+}
+
+.cart-summary {
+    text-align: right;
+}
+
+    .cart-summary h3 {
+        margin-bottom: 20px;
+    }
+
+.empty-cart-panel {
+    text-align: center;
+    padding: 50px 0;
+}
+
+/* --- Checkout Page --- */
+.checkout-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.shipping-form {
+    flex: 2;
+}
+
+.order-summary {
+    flex: 1;
+    background-color: #f8f9fa;
+    padding: 30px;
+    border-radius: 8px;
+}
+
+    .order-summary h3 {
+        margin-bottom: 20px;
+    }
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.summary-item-image {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.summary-item-info {
+    flex-grow: 1;
+}
+
+    .summary-item-info span {
+        display: block;
+    }
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* --- Định dạng cho khu vực mã QR --- */
+.qr-code-panel {
+    text-align: center; /* Căn giữa các dòng chữ bên trong */
+}
+
+    .qr-code-panel img {
+        width: 250px;
+        display: block;
+        margin: 15px auto;
+    }
+
+
+/* --- Product Detail Page --- */
+.product-detail-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.product-images {
+    flex: 1;
+    min-width: 300px;
+}
+
+.product-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.main-image img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.thumbnail-list {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.thumbnail-item {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+    .thumbnail-item:hover {
+        border-color: #27ae60;
+    }
+
+.product-info h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.info-meta {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+    .info-meta span {
+        margin-right: 15px;
+    }
+
+.price-tag {
+    font-size: 28px;
+    font-weight: 700;
+    color: #e74c3c;
+    margin-bottom: 20px;
+}
+
+.description {
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.add-to-cart-action .hero-button {
+    width: 100%;
+    max-width: 300px;
+}
+
+
+/* --- Admin Layout --- */
+.admin-wrapper {
+    display: flex;
+}
+
+.admin-sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    min-height: 100vh;
+}
+
+.sidebar-header {
+    padding: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    border-bottom: 1px solid #34495e;
+}
+
+    .sidebar-header a {
+        color: #fff;
+    }
+
+.sidebar-nav {
+    list-style-type: none;
+    padding: 15px 0;
+}
+
+    .sidebar-nav li a, .sidebar-nav li span {
+        display: block;
+        padding: 15px 20px;
+        color: #ecf0f1;
+        transition: background-color 0.3s;
+        font-size: 16px;
+    }
+
+        .sidebar-nav li a:hover, .sidebar-nav li span:hover {
+            background-color: #34495e;
+        }
+
+    .sidebar-nav li i {
+        margin-right: 10px;
+        width: 20px;
+    }
+
+.nav-divider {
+    height: 1px;
+    background-color: #34495e;
+    margin: 15px 0;
+}
+
+.sidebar-nav .aspNetDisabled {
+    opacity: 0.5;
+}
+
+.admin-content {
+    flex-grow: 1;
+    padding: 30px;
+    background-color: #f4f6f9;
+}
+
+    .admin-content h1, .admin-content h2 {
+        color: #2c3e50;
+        margin-bottom: 20px;
+    }
+/* GridView Style */
+.gridview {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+    .gridview th {
+        background-color: #f8f9fa;
+        font-weight: 600;
+        padding: 12px;
+        text-align: left;
+        border-bottom: 2px solid #dee2e6;
+    }
+
+    .gridview td {
+        padding: 12px;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+.current-product-image {
+    max-width: 200px;
+    max-height: 200px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.help-text {
+    font-size: 12px;
+    color: #777;
+    font-style: italic;
+}
+
+.existing-image-item {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+    .existing-image-item img {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        margin-bottom: 5px;
+    }
+
+.delete-image-btn {
+    color: #e74c3c;
+    font-size: 14px;
+}
+
+/* --- CSS cho các nút hành động trong GridView --- */
+.btn-action {
+    display: inline-block;
+    padding: 5px 10px !important;
+    color: white !important;
+    border-radius: 4px;
+    text-decoration: none !important;
+    margin-right: 5px;
+    font-size: 14px;
+    border: none;
+}
+
+/* Màu xanh cho Sửa và Cập nhật */
+.btn-edit, .btn-update {
+    background-color: #3498db !important;
+}
+
+/* Màu đỏ cho Xóa và Hủy */
+.btn-delete, .btn-cancel {
+    background-color: #e74c3c !important;
+}
+
+.btn-action:hover {
+    opacity: 0.85; /* Thêm hiệu ứng hover đơn giản */
+}
+
+/* --- Admin Dashboard (Giao diện mới) --- */
+.stat-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    color: white;
+    padding: 25px;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden; /* Ẩn các phần thừa của icon */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .stat-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .stat-card h4 {
+        opacity: 0.8;
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .stat-card h2 {
+        font-size: 36px;
+        margin: 5px 0;
+        font-weight: 700;
+    }
+
+    .stat-card i {
+        position: absolute;
+        right: 15px;
+        bottom: -10px;
+        font-size: 80px;
+        opacity: 0.2;
+        transform: rotate(-15deg);
+    }
+
+    /* Màu sắc riêng cho từng thẻ */
+    .stat-card.revenue {
+        background: linear-gradient(45deg, #27ae60, #2ecc71);
+    }
+
+    .stat-card.orders {
+        background: linear-gradient(45deg, #e67e22, #f39c12);
+    }
+
+    .stat-card.users {
+        background: linear-gradient(45deg, #8e44ad, #9b59b6);
+    }
+
+    .stat-card.products {
+        background: linear-gradient(45deg, #2980b9, #3498db);
+    }
+
+/* Tiêu đề "Đơn hàng gần đây" */
+.section-title-admin {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+
+/* --- Trang User Profile --- */
+.order-status {
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: black;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.status-cho-xac-nhan {
+    background-color: #f39c12;
+}
+
+.status-dang-xu-ly {
+    background-color: #3498db;
+}
+
+.status-dang-giao {
+    background-color: #8e44ad;
+}
+
+.status-da-giao {
+    background-color: #27ae60;
+}
+
+.status-da-huy {
+    background-color: #e74c3c;
+}
+
+/* --- Link user trên header --- */
+.user-panel a {
+    transition: color 0.2s;
+}
+
+    .user-panel a:hover {
+        color: #27ae60;
+    }
+
+.status-dang-xu-ly {
+    background-color: #3498db;
+}
+
+.status-dang-giao {
+    background-color: #8e44ad;
+}
+
+.status-da-giao {
+    background-color: #27ae60;
+}
+
+.status-da-huy {
+    background-color: #e74c3c;
+}
+
+/* --- Link user trên header --- */
+.user-panel a {
+    transition: color 0.2s;
+}
+
+    .user-panel a:hover {
+        color: #27ae60;
+    }
+
+
+.status-da-huy {
+    background-color: #e74c3c;
+}
+
+/* --- Link user trên header --- */
+.user-panel a {
+    transition: color 0.2s;
+}
+
+    .user-panel a:hover {
+        color: #27ae60;
     }
